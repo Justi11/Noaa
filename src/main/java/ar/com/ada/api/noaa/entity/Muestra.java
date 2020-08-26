@@ -17,7 +17,7 @@ public class Muestra {
     private String matriculaEmbarcacion;
     private double longitud;
     private double latitud;
-    @Column(name = "nivel_del_mar")
+    @Column(name = "altura_nivel_mar")
     private double nivelDelMar;
 
     @ManyToOne

@@ -15,9 +15,8 @@ public class BoyaService {
     @Autowired
     BoyaRepository boyaRepository;
 
-    public Boya crearBoya( Integer idBoya, double longitudInstalacion, double latitudInstalacion) {
+    public Boya crearBoya(double longitudInstalacion, double latitudInstalacion) {
         Boya boya = new Boya();
-        boya.setIdBoya(idBoya);
         boya.setLatitudInstalacion(latitudInstalacion);
         boya.setLongitudInstalacion(longitudInstalacion);
         grabar(boya);
