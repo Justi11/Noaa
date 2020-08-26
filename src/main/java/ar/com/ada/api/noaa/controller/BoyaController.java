@@ -24,11 +24,11 @@ public class BoyaController {
 
     @PostMapping("/api/boya")
     public ResponseEntity<GenericResponse> crearBoya(@RequestBody BoyaRequest boyaRequest) {
-        boyaService.crearBoya(boyaRequest.longitud_instalacion, boyaRequest.latitud_instalacion  );
+      Boya boya =  boyaService.crearBoya(boyaRequest.longitudInstalacion, boyaRequest.latitudInstalacion  );
         GenericResponse r = new GenericResponse();
         r.isOk = true;
         r.message = "Boya Creada con exito";
-        r.id = boyaRequest.boyaId;
+        r.id = boya.getIdBoya();
         return ResponseEntity.ok(r);
 
     }
@@ -40,7 +40,7 @@ public class BoyaController {
 
     @GetMapping("/api/boyas/{id}")
     public ResponseEntity<?> listarBoyaPorId(@PathVariable int id) {
-        return ResponseEntity.ok(boyaService.listarBoyaPorId(id));
+        return ResponseEntity.ok(boyaService.listarBoyasPorId(id));
 
     }
 

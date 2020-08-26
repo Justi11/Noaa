@@ -14,12 +14,13 @@ import org.hibernate.annotations.LazyCollectionOption;
 @Table(name = "boya")
 public class Boya {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_boya")
     private Integer idBoya;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     @Column(name = "color_luz")
     private String colorLuz;
-    @Column(name = "logitud_instalacion")
+    @Column(name = "longitud_instalacion")
     private double longitudInstalacion;
     @Column(name = "latitud_instalacion")
     private double latitudInstalacion;
