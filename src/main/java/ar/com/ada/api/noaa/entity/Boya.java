@@ -21,9 +21,9 @@ public class Boya {
     @Column(name = "color_luz")
     private String colorLuz;
     @Column(name = "longitud_instalacion")
-    private double longitudInstalacion;
+    private Double longitudInstalacion;
     @Column(name = "latitud_instalacion")
-    private double latitudInstalacion;
+    private Double latitudInstalacion;
     
     @OneToMany(mappedBy = "boya", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
@@ -45,19 +45,19 @@ public class Boya {
         this.colorLuz = colorLuz;
     }
 
-    public double getLongitudInstalacion() {
+    public Double getLongitudInstalacion() {
         return longitudInstalacion;
     }
 
-    public void setLongitudInstalacion(double longitudInstalacion) {
+    public void setLongitudInstalacion(Double longitudInstalacion) {
         this.longitudInstalacion = longitudInstalacion;
     }
 
-    public double getLatitudInstalacion() {
+    public Double getLatitudInstalacion() {
         return latitudInstalacion;
     }
 
-    public void setLatitudInstalacion(double latitudInstalacion) {
+    public void setLatitudInstalacion(Double latitudInstalacion) {
         this.latitudInstalacion = latitudInstalacion;
     }
 
@@ -71,7 +71,7 @@ public class Boya {
 
     
    
-       // this.temperaturas = temperaturas;
+   
     
 
 }
