@@ -15,10 +15,10 @@ public class BoyaService {
     @Autowired
     BoyaRepository boyaRepository;
 
-    public Boya crearBoya(double longitudInstalacion, double latitudInstalacion) {
+    public Boya crearBoya(Double longitudInstalacion, Double latitudInstalacion) {
         Boya boya = new Boya();
-        boya.setLatitudInstalacion(latitudInstalacion);
         boya.setLongitudInstalacion(longitudInstalacion);
+        boya.setLatitudInstalacion(latitudInstalacion);
         grabar(boya);
         return boya;
 
@@ -33,11 +33,33 @@ public class BoyaService {
         return boyaRepository.findAll();
     }
 
-    public Boya listarBoyasPorId(Integer id) { Optional<Boya> boyas =
-        boyaRepository.findById(id); if (boyas.isPresent()) return boyas.get(); 
-        return
-         null;
+    public Optional<Boya> obtenerBoyaPorId(Integer id) {
+        Optional<Boya> boyaOp = boyaRepository.findById(id);
+        if (boyaOp.isPresent())
+            return boyaOp;
+        return Optional.empty();
+    }
+
+    public String colorBoya(Double nivelDelMar){
+       String color;
+        if (nivelDelMar < -100 || nivelDelMar > 100){
+             color = "rojo";
+        }
+            else if (nivelDelMar < -50 || nivelDelMar < 50){
+                color = "amarillo";
+            }
+            else color = "verde";
+            
+            return color;
+    }
+
+    public boolean actualizarColorBoya(Integer id, String color) {
+        Optional<Boya> boyaOp = boyaRepository.findById(id);
+        if (boyaOp.isEmpty())
+            return false;
+        Boya boya = boyaOp.get();
+        boya.setColorLuz(color);
+        boyaRepository.save(boya);
+        return true;
     }
 }
-
-   
